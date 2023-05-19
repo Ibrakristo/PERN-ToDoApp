@@ -1,19 +1,16 @@
 import { useState } from 'react';
-import TickIcon from './TickIcon';
 import Modal from './Modal';
 import { Cookies, useCookies } from 'react-cookie';
-import { useNavigate } from 'react-router-dom';
 
 
 const ListItem=({task,getData}) =>{
   const [showModal,setShowModal]= useState(false)
   const [cookies,setCookie,removeCookie]=useCookies(null)
-  const navigate = useNavigate();
   let accessToken = cookies.accessToken;
    const deleteItem = async()=>{
     
     try{
-      const response= await fetch(`${"http://localhost:4000"}/task/delete`,
+      const response= await fetch(`${"http://localhost:4000"}/subtask/delete`,
       {
         method: 'DELETE',
         headers:{
@@ -32,16 +29,14 @@ const ListItem=({task,getData}) =>{
    }
 
     return (
-      <li className="list-item tasker-container">
-        <div className="info-container tasker-item" onClick={()=>{navigate(`${task._id}/subtasks`)}} style={{flexGrow:1}}>
-          <TickIcon/>
+      <li className="list-item ">
+        <div className="info-container" style={{padding:10 + "px"}}>
           
         <span>{task.index + " -"} </span>
         <p className="task-title"> {task.text}</p>
         </div>
         <div className='button-container'>
         <span>{task.status}</span>
-
         <button className='edit' onClick={ ()=> setShowModal(true)}>Edit</button>
         <button className='delete' onClick={deleteItem}>Delete</button>
           

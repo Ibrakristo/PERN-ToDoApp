@@ -219,3 +219,41 @@ flex-direction: column;
 .task-title {
     width: 300px;
 }
+
+.tasker-container:hover{
+box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.7);
+}
+.tasker-item{
+    cursor: pointer;
+
+}
+
+
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #555;
+    background-color: #fff;
+    appearance: none; /* Remove default arrow icon on some browsers */
+  }
+  
+  /* Style the select options */
+  select option {
+    padding: 10px;
+    color: #555;
+    background-color: #fff;
+  }
+  
+  /* Style the select options on hover */
+  select option:hover {
+    background-color: #f0f0f0;
+  }
+  
+  /* Style the select options when selected */
+  select option:checked {
+    background-color: #ddd;
+  }
+  

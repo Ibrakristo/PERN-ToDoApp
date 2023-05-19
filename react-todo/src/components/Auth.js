@@ -35,20 +35,18 @@ const Auth = () => {
     const data = await response.json()
     if (!data.result && endpoint=="register") {
       setError(data.msg||data.error);
-      
     }
-    if (data.error && endpoint=="login") {
+    else if (data.error && endpoint=="login") {
       setError(data.msg||data.error);
       
     }
      else {
       if(endpoint =="register"){
-        window.location.reload()
+        setIsLogin(true);
+        setError("");
       }
       else{
-        console.log(1);
         setCookie('accessToken', data.accessToken,{SameSite:"None"})  
-        window.location.reload()
       }
 
     }
@@ -70,8 +68,8 @@ const Auth = () => {
           {!isLogin && <input type="text"
             placeholder="Last Name" onChange={(e) => setLastName(e.target.value)} />}
 
-          {isLogin && <input type="text"
-            placeholder="User Name" onChange={(e) => setUserName(e.target.value)} />}
+           <input type="text"
+            placeholder="User Name" onChange={(e) => setUserName(e.target.value)} />
 
 
 
