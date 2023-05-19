@@ -131,8 +131,12 @@ useEffect(()=> {
       <p className='user-email'>Welcome back! 😇  </p>
       </div>
       {tasks?.map((task)=> <ListItem key={task._id } task={task} getData={getData} />)}
-      <canvas id="myChart" style={{"width":"100%","maxWidth":"700px"}}></canvas> </> }
+      <canvas id="myChart" style={{"width":"100%","maxWidth":"700px"}}></canvas> 
       <div style={{textAlign:'center'}}>{avgDay?avgDay + " Average Completed Tasks Per Day":"Calculating The Average"}</div>
+
+      </> 
+      
+      }
       </div>
    
   );
