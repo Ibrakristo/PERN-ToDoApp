@@ -32,11 +32,12 @@ const Auth = () => {
       },
       body: JSON.stringify({firstname,lastname,username, email, password,confirm_password })
     })
-    const data = await response.json()
+    const data = await response.json();
+    console.log(data);
     if (!data.result && endpoint=="register") {
       setError(data.msg||data.error);
     }
-    else if (data.error && endpoint=="login") {
+    else if ((!data.result || data.error) && endpoint=="login") {
       setError(data.msg||data.error);
       
     }
