@@ -36,7 +36,7 @@ const Auth = () => {
     if (!data.result && endpoint=="register") {
       setError(data.msg||data.error);
     }
-    else if (data.error && endpoint=="login") {
+    else if ((data.error || !data.accessToken) && endpoint=="login") {
       setError(data.msg||data.error);
       
     }
